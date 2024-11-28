@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Mart Sales Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link
+</head>
+<body style="background-image: url('static/1625012.jpg');">
+    <div class="opacity-container">
+        <h1>Big Mart Sales Prediction</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="item_weight">Item Weight:</label>
+                <input type="number" step="0.01" id="item_weight" name="item_weight" required>
+            </div>
+            <div class="form-group">
+                <label for="item_fat_content">Item Fat Content:</label>
+                <select id="item_fat_content" name="item_fat_content" required>
+                    <option value="Low Fat">Low Fat</option>
+                    <option value="Regular">Regular</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="item_visibility">Item Visibility:</label>
+                <input type="number" step="0.001" id="item_visibility" name="item_visibility" required>
+            </div>
+            <div class="form-group">
+                <label for="item_type">Item Type:</label>
+                <input type="text" id="item_type" name="item_type" required>
+            </div>
+            <div class="form-group">
+                <label for="item_mrp">Item MRP:</label>
+                <input type="number" step="0.01" id="item_mrp" name="item_mrp" required>
+            </div>
+            <div class="form-group">
+                <label for="outlet_size">Outlet Size:</label>
+                <select id="outlet_size" name="outlet_size" required>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="outlet_location_type">Outlet Location Type:</label>
+                <select id="outlet_location_type" name="outlet_location_type" required>
+                    <option value="Tier 1">Tier 1</option>
+                    <option value="Tier 2">Tier 2</option>
+                    <option value="Tier 3">Tier 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="outlet_type">Outlet Type:</label>
+                <input type="text" id="outlet_type" name="outlet_type" required>
+            </div>
+            <button type="submit">predict sales</button>
+        </form>
+        {% if prediction %}
+        <div class="prediction">
+            <h2>Predicted Sales: ${{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
